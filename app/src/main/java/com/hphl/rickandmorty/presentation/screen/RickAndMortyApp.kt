@@ -11,7 +11,7 @@ import com.hphl.rickandmorty.ui.theme.RickAndMortyTheme
 fun RickAndMortyApp() {
     RickAndMortyTheme {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            CharactersScreen(modifier = Modifier.padding(innerPadding))
+            CharactersRoute(modifier = Modifier.padding(innerPadding))
         }
     }
 }
