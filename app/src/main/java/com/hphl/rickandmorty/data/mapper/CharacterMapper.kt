@@ -26,15 +26,9 @@ fun CharacterResponseDto.toDomain(): PagedCharacters {
 
 fun InfoDto.toDomain(): PageInfo {
     return PageInfo(
-        nextPage = extractPageNumber(this.next),
+        nextPage = this.next,
         count = this.count,
         totalPages = this.pages,
-        previousPage = extractPageNumber(this.prev),
+        previousPage = this.prev
     )
-}
-
-private fun extractPageNumber(nextUrl: String?): Int? {
-    return nextUrl
-        ?.substringAfter("page=", "")
-        ?.toIntOrNull()
 }

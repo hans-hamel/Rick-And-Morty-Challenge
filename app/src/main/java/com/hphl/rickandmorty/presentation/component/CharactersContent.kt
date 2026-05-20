@@ -9,12 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.hphl.rickandmorty.domain.model.CharacterModel
+import com.hphl.rickandmorty.domain.model.PageInfo
+import com.hphl.rickandmorty.domain.model.PagedCharacters
 import com.hphl.rickandmorty.presentation.CharactersConstants.CHARACTER_RICK
 
 @Composable
 fun CharactersContent(
-    characters: List<CharacterModel>,
+    pagedCharacters: PagedCharacters,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
@@ -23,7 +24,7 @@ fun CharactersContent(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(
-            items = characters,
+            items = pagedCharacters.characters,
             key = { it.id }
         ) { character ->
             CharacterItem(character)
@@ -36,6 +37,14 @@ fun CharactersContent(
 @Composable
 private fun CharactersContentPreview() {
     CharactersContent(
-        characters = listOf(CHARACTER_RICK)
+        pagedCharacters = PagedCharacters(
+            characters = listOf(CHARACTER_RICK),
+            pageInfo = PageInfo(
+                count = 100,
+                totalPages = 12,
+                nextPage = "",
+                previousPage = null
+            )
+        )
     )
 }

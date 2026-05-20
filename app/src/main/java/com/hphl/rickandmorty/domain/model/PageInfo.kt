@@ -3,6 +3,6 @@ package com.hphl.rickandmorty.domain.model
 data class PageInfo(
     val count: Int,
     val totalPages: Int,
-    val nextPage: Int?,
-    val previousPage: Int?
+    val nextPage: String?,
+    val previousPage: String?
 )

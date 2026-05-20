@@ -29,7 +29,7 @@ class CharactersViewModel @Inject constructor(
             try {
                 val result = getCharactersUseCase(page)
 
-                _uiState.value = CharactersUiState.Success(characters = result.characters)
+                _uiState.value = CharactersUiState.Success(pagedCharacters = result)
             } catch (exception: Exception) {
                 _uiState.value = CharactersUiState.Error(
                     message = exception.message ?: "Unknown error"

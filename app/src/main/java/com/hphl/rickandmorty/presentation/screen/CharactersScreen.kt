@@ -18,14 +18,12 @@ fun CharactersScreen(
             LoadingContent(modifier)
         }
 
-
         is CharactersUiState.Success -> {
             CharactersContent(
-                characters = uiState.characters,
+                pagedCharacters = uiState.pagedCharacters,
                 modifier = modifier
             )
         }
-
 
         is CharactersUiState.Error -> {
             ErrorContent(
